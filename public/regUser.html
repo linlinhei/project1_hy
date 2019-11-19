@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	  *{margin:0,padding:0;}
+		.main{width:1200px;height:960px;margin:0 auto;
+		  background:rgba(0,0,0,0.1);
+		}
+		#content{
+		  width:1200px;margin:0 auto;
+			display:flex;
+			margin:150px 50px 0 0;
+		}
+    #content #pic{
+		  width:280px;
+			margin-top:101px;
+			margin-left:170px;
+		}
+    #content #form{
+		  width:400px;height:600px;
+			margin-left:191px;
+			margin-top:50px;
+		}
+		#content #form #first{
+		  width:100%;
+		}
+		#content #form #title{
+		  font-size:26px;
+			font-weight:bold;
+		}
+		#content #form span.txt{
+		  font-size:16px;
+			margin-left:120px;
+		}
+		#content #form a{
+		  font-size:16px;
+			text-decoration:none;
+		}
+		#content #form #box{
+		  border:1px solid #000;
+		}
+		#content #form #box .k{
+		  width:300px;height:38px;
+			margin-top:20px;
+			margin-left:35px;
+			padding-left:20px;
+		}
+		#content #form p.txt{
+		  font-size:16px;
+			margin-left:170px;
+		}
+    #content #form #box button{
+		  width:260px;height:38px;
+			font-size:20px;
+			margin:10px 50px 20px 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+	  <table></table>
+	  <div id="head"></div>
+	  <div id="content">
+		  <div id="pic">
+			  <img src="../image/1.jpg" alt="">
+			</div>
+			<div id="form">
+			  <div id="first">
+				  <span id="title">新用户注册</span>
+				  <span class="txt">已注册,现在
+					  <a href="">登录</a>
+					</span>
+				</div>
+				<hr>
+				<div id="box">
+				  <div>
+					  <input type="text" class="k" id="uname" placeholder="请输入用户名">
+						<p id="uname_msg"></p>
+					</div>
+				  <div>
+					  <input type="password" class="k" id="upwd" placeholder="请输入密码">
+						<p id="upwd_msg"></p>
+					</div>
+				  <div>
+					  <input type="password" class="k" id="cpwd" placeholder="请再次输入密码">
+						<p id="cpwd_msg"></p>
+					</div>
+				  <div>
+					  <input type="text" id="email" class="k" placeholder="请输入您的邮箱">
+						<p id="email_msg"></p>
+					</div>
+				  <div>
+					  <input type="text" id="phone" class="k" placeholder="请输入您的手机号">
+						<p id="phone_msg"></p> 
+					</div>
+					<p class="txt">
+					  <input type="checkbox" id="auto">
+						<label for="auto" >请阅读&lt;花语服务条款&gt;</label>
+					</p>
+					<button>注册</button>
+				</div>
+			</div>
+		</div>
+	  <div id="footer"></div>
+	</div>
+</body>
+</html>

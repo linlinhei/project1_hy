@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+  <head>
+	  <title></title>
+	  <meta charset="UTF-8">
+	  <style>
+		  *{margin:0;padding:0;}
+			a{color:#000;text-decoration:none;
+				font-size:18px;
+			}
+			#content{
+				width:1200px;height:810px;
+				margin:0 auto;
+				background-image:url(../image/bg.jpg);
+				position:relative;
+			}
+			div .form{
+				width:350px;height:400px;
+				background:rgba(255,255,255,0.7);
+				position:absolute;
+				top:202px;
+				right:145px;
+				padding:10px;
+			}
+		  div .form p{
+			  text-align:right;
+				font-size:18px;
+			}
+			div .form h4{
+			  font-size:28px;
+				margin:10px 0px;
+			}
+      div .form hr{
+			  margin-bottom:5px;
+			}
+			div .form #uname,div .form #upwd{
+			  width:210px;height:38px;
+        margin:10px 0;
+				font-size:17px;
+				border:0px;outline:0px;
+				padding-left:15px;
+			}
+			div .form .msg{
+			  font-size:13px;
+				color:#f00;
+			}
+			div .form button{
+			  width:120px;height:38px;
+			  background-color:rgba(0,0,0,0.7);
+			  border:0;
+			  color:#fff;
+			  margin-top:20px;
+				font-size:22px;
+				border-radius:3px;
+				margin-bottom:40px;
+			}
+			div .form #d1{
+				text-align:center;
+				font-size:12px;
+			}
+		</style>
+  </head>
+  <body>
+	  <div id="content">
+		  <div>
+			 <div class="form">
+				  <p>第一次来到花语?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					  <a href="">新用户注册</a>
+					</p>
+			    <h4>用户登录</h4>
+          <hr>
+          <input onblur="check_uname()" onfocus="show_msg()" type="text" id="uname" placeholder="请输入用户名"><span id="uname_msg" class="msg"></span><br>
+          <input onblur="check_upwd()" onfocus="show_upwd()"type="password" id="upwd"  placeholder="请输入密码"><span id="upwd_msg" class="msg"></span> <br>
+					<div>
+						<input type="checkbox" id="auto">
+						<label for="auto">记住密码</label>
+					</div>
+				  <button onclick="login()">登录</button>
+					<div>
+						<p id="d1">第三方账号登录</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+		  function show_msg(){
+		    uname_msg.innerHTML="用户名长度在6~9位之间";
+		  }
+			function check_uname(){
+				var $uname=uname.value;
+				console.log($uname);
+				if(!$uname){
+					uname_msg.innerHTML="用户名不能为空";
+					return;
+				}else if($uname.length>=6 &&	$uname.length<=9){
+					uname_msg.innerHTML="用户名可以使用";
+				}else{
+					uname_msg.innerHTML="格式错误";
+				}
+		  }
+		  function show_upwd(){
+				upwd_msg.innerHTML="密码长度在6~12位";
+			}
+			function check_upwd(){
+				var $upwd=upwd.value;
+				if(!$upwd){
+					upwd_msg.innerHTML="密码不能为空";
+					return;
+				}else if($upwd.length>=6 &&	$upwd.length<=12){
+					upwd_msg.innerHTML="正确";
+					
+				}else{
+					upwd_msg.innerHTML="格式错误";
+					
+				}
+			}
+			function login(){
+			  var $uname=uname.value;
+				var $upwd=upwd.value;
+				var xhr=new XMLHttpRequest();
+				xhr.onreadystatechange=function(){
+				  if(xhr.readyState==4 && xhr.status==200){
+					  var result=xhr.responseText;
+              if(result==1){
+							  alert("登录成功");
+							}else{
+							  alert("用户名或密码错误");
+							}
+					}
+				}
+				xhr.open("get","pro/v1/login/"+&uname+"&"+$upwd,true);
+				xhr.send();
+			}
+		</script>
+  </body>
+</html>
